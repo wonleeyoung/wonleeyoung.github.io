@@ -1,78 +1,54 @@
 # Wonyeong Lee — Academic Homepage
 
-A minimal, fast, fully static personal/CV website. No build step, no server, no cost.
+🌐 **Live: https://wonleeyoung.github.io**
+
+A minimal, fast, fully static CV website. No build step, no server, no cost.
 
 ```
 index.html      ← all content (edit text here)
-style.css       ← colors & layout (edit --variables at the top)
+style.css       ← colors & layout (edit the --variables at the top)
 cv.pdf          ← your CV, linked by the "Curriculum Vitae" button
+.nojekyll       ← tells GitHub Pages to serve files as-is (don't delete)
 profile.jpg     ← your photo (add this file — see below)
 ```
 
 ---
 
-## 1. Add your photo
+## Still to personalize
 
-Drop a square-ish image named **`profile.jpg`** into this folder.
-(If you skip it, the page still works — the photo just won't show.)
+- **Photo** — drop a square image named `profile.jpg` into this folder, then push (see below). Until then the photo simply doesn't show.
+- **Google Scholar & LinkedIn** — these links are currently commented out in `index.html` (search for `Google Scholar` / `LinkedIn`). Paste your real URLs and remove the `<!-- -->` to enable them.
+- **Email** — set to `lwy970327@naver.com`; edit the `mailto:` in `index.html` to change.
 
-## 2. Fill in your links
+## Edit & preview locally
 
-Open `index.html`, find the `<!-- TODO -->` lines in the **LINKS** block, and replace
-`href="#"` with your real URLs (Google Scholar, GitHub, LinkedIn). Delete any link you don't want.
-
-## 3. Preview locally (optional)
-
-Just double-click `index.html` to open it in your browser. To use a local server instead:
+Double-click `index.html`, or run a local server:
 
 ```powershell
-python -m http.server 8000
+C:\Users\lwy97\miniconda3\python.exe -m http.server 8000
 # then open http://localhost:8000
 ```
 
----
+## Publish changes
 
-## 4. Deploy free on GitHub Pages
-
-Your site will live at **`https://<username>.github.io`** — free forever, no card required.
-
-### One-time setup
-
-1. Create a GitHub account (if you don't have one): https://github.com/signup
-2. Create a **new public repository** named exactly:
-   ```
-   <username>.github.io
-   ```
-   (e.g. if your username is `wonyeong`, the repo is `wonyeong.github.io`)
-3. From this folder, push the files:
-
-   ```powershell
-   git init
-   git add .
-   git commit -m "Initial CV site"
-   git branch -M main
-   git remote add origin https://github.com/<username>/<username>.github.io.git
-   git push -u origin main
-   ```
-
-4. On GitHub: **Settings → Pages** → Source = `Deploy from a branch`, Branch = `main` / `root` → **Save**.
-5. Wait ~1 minute, then visit `https://<username>.github.io`. Done. 🎉
-
-### Updating later
-
-Edit the files, then:
+This folder is the source for the `wonleeyoung.github.io` repository. After editing:
 
 ```powershell
 git add .
 git commit -m "Update CV"
-git push
+git push origin main
 ```
 
-The live site refreshes automatically within a minute.
+The live site refreshes within ~1 minute. The first push will ask you to sign in to
+GitHub (a browser window opens — approve once and it's remembered).
 
 ---
 
-## 5. (Optional) Custom domain
+## Notes
 
-If you ever buy a domain (e.g. `wonyeong.dev`), add it under **Settings → Pages → Custom domain**.
-GitHub Pages serves it over HTTPS for free — you only pay the domain registrar, never GitHub.
+- **Previous site backup** — the old GitProfile portfolio that used to live here is fully
+  preserved on the `old-gitprofile-backup` branch. To bring it back:
+  `git push --force origin old-gitprofile-backup:main`.
+- **Custom domain (optional, still free)** — buy a domain, then add it under
+  **Settings → Pages → Custom domain**. GitHub serves it over HTTPS for free; you only
+  pay the registrar.
