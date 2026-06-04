@@ -18,7 +18,7 @@ profile.jpg     ← your photo (add this file — see below)
 
 - **Photo** — drop a square image named `profile.jpg` into this folder, then push (see below). Until then the photo simply doesn't show.
 - **Google Scholar & LinkedIn** — these links are currently commented out in `index.html` (search for `Google Scholar` / `LinkedIn`). Paste your real URLs and remove the `<!-- -->` to enable them.
-- **Email** — set to `lwy970327@naver.com`; edit the `mailto:` in `index.html` to change.
+- **Email** — set to `wonyeong.lee@yonsei.ac.kr`; edit the `mailto:` in `index.html` to change.
 
 ## Edit & preview locally
 
