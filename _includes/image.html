@@ -1,0 +1,18 @@
+{%- assign image_path = include.path | default: '' | strip -%}
+{%- assign image_found = false -%}
+{%- if image_path != '' -%}
+  {%- assign image_start = image_path | slice: 0, 1 -%}
+  {%- assign image_prefix = image_path | slice: 0, 2 -%}
+  {%- if image_path contains '://' or image_prefix == '//' -%}
+    {%- assign image_found = true -%}
+  {%- else -%}
+    {%- if image_start != '/' -%}{%- assign image_path = '/' | append: image_path -%}{%- endif -%}
+    {%- assign lookup_path = image_path | split: '?' | first | split: '#' | first | url_decode -%}
+    {%- for file in site.static_files -%}
+      {%- if file.path == lookup_path -%}{%- assign image_found = true -%}{%- break -%}{%- endif -%}
+    {%- endfor -%}
+  {%- endif -%}
+{%- endif -%}
+{%- if image_found -%}
+<img class="{{ include.class | escape }}" src="{% include url.html url=image_path %}" alt="{{ include.alt | escape }}" loading="lazy" />
+{%- endif -%}

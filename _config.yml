@@ -1,0 +1,17 @@
+url: "https://wonleeyoung.github.io"
+baseurl: ""
+markdown: kramdown
+kramdown:
+  input: GFM
+  smart_quotes: ["apos", "apos", "quot", "quot"]
+theme: null
+plugins: []
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - scripts
+  - tests
+  - vendor
+  - work
+  - .bundle

@@ -229,3 +229,24 @@ footer p { margin: 0; }
   .entry-date { order: -1; padding-top: 0; }
   .entry-loc { text-align: left; }
 }
+
+/* Optional content and management guide; original CV styles stay above. */
+[hidden] { display: none !important; }
+.pub-image { display: block; max-width: 100%; max-height: 220px; margin-top: 12px; border-radius: 7px; }
+.publication-links { margin-top: 10px; gap: 8px; }
+.entry-body { min-width: 0; }
+main { overflow-wrap: anywhere; }
+.extra-section img, .about img { max-width: 100%; height: auto; }
+.manage h1 { font-size: 1.8rem; }
+.manage h2 { margin-top: 36px; font-size: 1.05rem; text-transform: none; letter-spacing: normal; }
+.manage h3 { margin-top: 26px; }
+.manage pre { padding: 16px; overflow-x: auto; background: var(--surface); border: 1px solid var(--border); border-radius: 7px; }
+.manage code { font-size: 0.88em; }
+.manage table { width: 100%; border-collapse: collapse; }
+.manage th, .manage td { border: 1px solid var(--border); padding: 8px; text-align: left; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --bg: #16181d; --surface: #20232a; --text: #e7e7ea;
+    --muted: #9a9aa2; --accent: #7aa2ff; --border: #2c2f37; --avatar-ring: #2c2f37;
+  }
+}

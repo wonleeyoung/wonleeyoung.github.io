@@ -1,202 +1,110 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Wonyeong Lee</title>
-  <meta name="description" content="Wonyeong Lee — Ph.D. student at Yonsei University. Research in real-time systems, intermittent computing, and on-device machine learning." />
-  <meta name="author" content="Wonyeong Lee" />
+---
+layout: default
+---
+{% assign cv = site.data.cv %}
+<header class="profile">
+  {% include image.html path=cv.profile.photo alt=cv.profile.name class='avatar' %}
+  <div class="profile-text">
+    <h1>{{ cv.profile.name | escape }}</h1>
+    {% if cv.profile.title != empty and cv.profile.title %}<p class="title">{{ cv.profile.title | escape }}</p>{% endif %}
+    {% if cv.profile.affiliation != empty and cv.profile.affiliation %}<p class="affiliation">{{ cv.profile.affiliation | escape }}</p>{% endif %}
+    {% if cv.profile.address != empty and cv.profile.address %}<p class="address">{{ cv.profile.address | escape }}</p>{% endif %}
+    {% capture profile_links %}
+      {% assign email = cv.profile.email | default: '' | strip %}
+      {% if email != '' %}
+      <a href="mailto:{{ email | escape }}" aria-label="Email" title="Email">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
+      </a>
+      {% endif %}
+      {% for link in cv.profile.social_links %}
+        {% assign label = link.label | default: '' | strip %}{% assign url = link.url | default: '' | strip %}
+        {% if label != '' and url != '' %}<a href="{% include url.html url=url %}">{{ label | escape }}</a>{% endif %}
+      {% endfor %}
+      {% assign pdf = cv.profile.cv | default: '' | strip %}
+      {% if pdf != '' %}<a href="{% include url.html url=pdf %}" class="cv-button" target="_blank" rel="noopener">{{ cv.profile.cv_label | default: 'Curriculum Vitae (PDF)' | escape }}</a>{% endif %}
+      {% for link in cv.profile.links %}
+        {% assign label = link.label | default: '' | strip %}{% assign url = link.url | default: '' | strip %}
+        {% if label != '' and url != '' %}<a href="{% include url.html url=url %}" class="cv-button">{{ label | escape }}</a>{% endif %}
+      {% endfor %}
+    {% endcapture %}
+    {% assign profile_links = profile_links | strip %}
+    {% if profile_links != '' %}<nav class="links" aria-label="Profile links">{{ profile_links }}</nav>{% endif %}
+  </div>
+</header>
 
-  <!-- Open Graph (nice previews when the link is shared) -->
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Wonyeong Lee" />
-  <meta property="og:description" content="Ph.D. student at Yonsei University — real-time systems, intermittent computing, on-device ML." />
+{% assign about = cv.about | default: '' | strip %}
+{% if about != '' %}<section class="about">{{ cv.about | markdownify }}</section>{% endif %}
 
-  <!-- Emoji favicon, no extra file needed -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎓</text></svg>" />
+{% if cv.education.size > 0 %}
+<section>
+  <h2>Education</h2>
+  {% for item in cv.education %}
+  <div class="entry">
+    <div class="entry-date">{{ item.date | escape }}</div>
+    <div class="entry-body">
+      <span class="entry-org">{{ item.organization | escape }}</span>
+      <span class="entry-sub">{{ item.degree | escape }}</span>
+      {% if item.note and item.note != '' %}<span class="entry-note">{{ item.note | escape }}</span>{% endif %}
+    </div>
+    {% if item.location and item.location != '' %}<div class="entry-loc">{{ item.location | escape }}</div>{% endif %}
+  </div>
+  {% endfor %}
+</section>
+{% endif %}
 
-  <link rel="stylesheet" href="style.css" />
+{% if cv.interests.size > 0 %}
+<section>
+  <h2>Research Interests</h2>
+  <ul class="tags">{% for interest in cv.interests %}<li>{{ interest | escape }}</li>{% endfor %}</ul>
+</section>
+{% endif %}
 
-  <!-- Set theme before paint to avoid a flash of the wrong theme -->
-  <script>
-    (function () {
-      var saved = localStorage.getItem("theme");
-      var theme = saved || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
-      document.documentElement.setAttribute("data-theme", theme);
-    })();
-  </script>
-</head>
+{% if cv.publications.size > 0 %}
+<section>
+  <h2>Publications</h2>
+  <ol class="pub-list">
+    {% for paper in cv.publications %}
+    <li>
+      <span class="pub-title">{{ paper.title | escape }}</span>.
+      {% for author in paper.authors -%}
+        {%- unless forloop.first -%}{%- if forloop.last -%}{%- if forloop.length > 2 -%}, and {% else %} and {% endif %}{%- else -%}, {% endif %}{%- endunless -%}
+        {%- if author == cv.profile.name -%}<span class="me">{{ author | escape }}</span>{%- else -%}{{ author | escape }}{%- endif -%}
+      {%- endfor %}.
+      <span class="pub-venue">{{ paper.venue | escape }}</span>{% if paper.details and paper.details != '' %},
+      {{ paper.details | escape }}{% endif %}.
+      {% include links.html links=paper.links %}
+      {% include image.html path=paper.image alt=paper.title class='pub-image' %}
+    </li>
+    {% endfor %}
+  </ol>
+</section>
+{% endif %}
 
-<body>
-  <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
-    <span class="theme-icon-light">☀︎</span>
-    <span class="theme-icon-dark">☾</span>
-  </button>
+{% if cv.awards.size > 0 %}
+<section>
+  <h2>Awards and Honors</h2>
+  <ul class="list">
+    {% for item in cv.awards %}
+    <li><span>{{ item.title | escape }}</span>{{ item.details | escape }}{% if item.date and item.date != '' %}<span class="muted"> ({{ item.date | escape }})</span>{% endif %}</li>
+    {% endfor %}
+  </ul>
+</section>
+{% endif %}
 
-  <main>
-    <!-- ============ HEADER ============ -->
-    <header class="profile">
-      <!-- Drop your photo into this folder as "profile.jpg" (or change the src below).
-           If the file is missing, the photo simply won't show — the rest still looks fine. -->
-      <img class="avatar" src="profile.jpg" alt="Wonyeong Lee" onerror="this.style.display='none'" />
+{% if cv.teaching.size > 0 %}
+<section>
+  <h2>Teaching Experience</h2>
+  <ul class="list">
+    {% for item in cv.teaching %}
+    <li><span>{{ item.title | escape }}</span> {{ item.details | escape }}{% if item.date and item.date != '' %}<span class="muted"> ({{ item.date | escape }})</span>{% endif %}</li>
+    {% endfor %}
+  </ul>
+</section>
+{% endif %}
 
-      <div class="profile-text">
-        <h1>Wonyeong Lee</h1>
-        <p class="title">Ph.D. Student, Department of Computer Science</p>
-        <p class="affiliation">Yonsei University</p>
-        <p class="address">50 Yonsei-ro, Seodaemun-gu, Seoul 03722, Republic of Korea</p>
-
-        <!-- ============ LINKS ============
-             Fill in the href="#" links below with your real URLs.
-             To remove a link you don't use, just delete its <a> ... </a> block. -->
-        <nav class="links" aria-label="Profile links">
-          <a href="mailto:wonyeong.lee@yonsei.ac.kr" aria-label="Email" title="Email">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
-          </a>
-          <!-- Google Scholar — send me your Scholar URL to enable (example href below).
-          <a href="https://scholar.google.com/citations?user=YOUR_ID" aria-label="Google Scholar" title="Google Scholar" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5l4.838 3.94A8 8 0 0 1 12 9a8 8 0 0 1 7.162 4.44L24 9.5z"/></svg>
-          </a>
-          -->
-          <!-- LinkedIn — send me your LinkedIn URL to enable (example href below).
-          <a href="https://www.linkedin.com/in/your-handle" aria-label="LinkedIn" title="LinkedIn" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
-          </a>
-          -->
-          <a href="cv.pdf" class="cv-button" target="_blank" rel="noopener">Curriculum Vitae (PDF)</a>
-          <a href="deadlines/" class="cv-button">Paper Deadlines ⏰</a>
-        </nav>
-      </div>
-    </header>
-
-    <!-- ============ ABOUT (edit freely) ============ -->
-    <section class="about">
-      <p>
-        I am a Ph.D. student in the Department of Computer Science at Yonsei University,
-        advised by Prof. Jinkyu Lee. My research lies at the intersection of
-        <strong>real-time systems</strong>, <strong>intermittent computing</strong>, and
-        <strong>on-device machine learning</strong> — building systems that deliver timely and
-        accurate inference under tight energy and latency constraints.
-      </p>
-    </section>
-
-    <!-- ============ EDUCATION ============ -->
-    <section>
-      <h2>Education</h2>
-
-      <div class="entry">
-        <div class="entry-date">Mar. 2026 – Present</div>
-        <div class="entry-body">
-          <span class="entry-org">Yonsei University</span>
-          <span class="entry-sub">Department of Computer Science</span>
-          <span class="entry-note">Ph.D. Student · Advisor: Jinkyu Lee</span>
-        </div>
-        <div class="entry-loc">Seoul, Korea</div>
-      </div>
-
-      <div class="entry">
-        <div class="entry-date">Aug. 2024 – Feb. 2026</div>
-        <div class="entry-body">
-          <span class="entry-org">Sungkyunkwan University</span>
-          <span class="entry-sub">M.S. in Computer Science and Engineering</span>
-          <span class="entry-note">Thesis: Edge-Server Collaborative Inference System based on Masked Autoencoders · Advisor: Jinkyu Lee</span>
-        </div>
-        <div class="entry-loc">Suwon, Korea</div>
-      </div>
-
-      <div class="entry">
-        <div class="entry-date">Aug. 2021 – Aug. 2024</div>
-        <div class="entry-body">
-          <span class="entry-org">Sungkyunkwan University</span>
-          <span class="entry-sub">B.S. in Computer Science and Engineering</span>
-        </div>
-        <div class="entry-loc">Suwon, Korea</div>
-      </div>
-
-      <div class="entry">
-        <div class="entry-date">Mar. 2018 – Aug. 2024</div>
-        <div class="entry-body">
-          <span class="entry-org">Sungkyunkwan University</span>
-          <span class="entry-sub">B.S. in Mechanical Engineering</span>
-        </div>
-        <div class="entry-loc">Suwon, Korea</div>
-      </div>
-    </section>
-
-    <!-- ============ RESEARCH INTERESTS ============ -->
-    <section>
-      <h2>Research Interests</h2>
-      <ul class="tags">
-        <li>Real-Time Systems</li>
-        <li>Embedded Systems</li>
-        <li>Test-Time Adaptation</li>
-        <li>Intermittent Computing</li>
-        <li>Mobile Computing</li>
-      </ul>
-    </section>
-
-    <!-- ============ PUBLICATIONS ============ -->
-    <section>
-      <h2>Publications</h2>
-      <ol class="pub-list">
-        <li>
-          <span class="pub-title">LEAF: Layer-Wise Energy-Adaptive Framework for Multi-DNN Real-Time Intermittent Systems</span>.
-          Hyunwoo Koo, <span class="me">Wonyeong Lee</span>, and Jinkyu Lee.
-          <span class="pub-venue">The 24th International Conference on Pervasive Computing and Communications (PerCom)</span>,
-          Pisa, Italy, March 2026.
-        </li>
-        <li>
-          <span class="pub-title">CARTEL: Consensus Adapting Real-Time and Efficient Logging</span>.
-          Seunghoon Lee, <span class="me">Wonyeong Lee</span>, Seungyeon Cho, Seongtae Lee, and Jinkyu Lee.
-          <span class="pub-venue">The 46th IEEE Real-Time Systems Symposium (RTSS)</span>,
-          pp. 461–473, Boston, MA, USA, December 2025.
-        </li>
-        <li>
-          <span class="pub-title">Masked Autoencoders are Robust Task Offloaders for Timely and Accurate Inference</span>.
-          <span class="me">Wonyeong Lee</span>, Seunghoon Lee, Seungyeon Cho, Hyunwoo Koo, Hoon Sung Chwa, and Jinkyu Lee.
-          <span class="pub-venue">The 38th IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)</span>,
-          pp. 13835–13842, Hangzhou, China, October 2025.
-        </li>
-      </ol>
-    </section>
-
-    <!-- ============ AWARDS ============ -->
-    <section>
-      <h2>Awards and Honors</h2>
-      <ul class="list">
-        <li><span>Graduate Academic Excellence Scholarship</span>, Sungkyunkwan University, Korea<span class="muted"> (Aug. 2024 – Feb. 2026)</span></li>
-        <li><span>Dean's List Award</span>, Sungkyunkwan University, Korea<span class="muted"> (Dec. 2022)</span></li>
-        <li><span>National Science and Technology Scholarship</span>, Korean Government (KOSAF), Korea<span class="muted"> (Mar. 2018 – Feb. 2024)</span></li>
-      </ul>
-    </section>
-
-    <!-- ============ TEACHING ============ -->
-    <section>
-      <h2>Teaching Experience</h2>
-      <ul class="list">
-        <li><span>Technical Writing and Presentation for Software Developers</span> (SWE3058), SKKU — Teaching Assistant<span class="muted"> (Sep. 2024 – Dec. 2024)</span></li>
-        <li><span>Seminar in Computer Engineering</span> (CSE3036), SKKU — Teaching Assistant<span class="muted"> (Mar. 2025 – Jul. 2025)</span></li>
-        <li><span>Introduction to Data Structures</span> (SWE2015), SKKU — Teaching Assistant<span class="muted"> (Sep. 2025 – Dec. 2025)</span></li>
-      </ul>
-    </section>
-
-    <footer>
-      <p>© <span id="year">2026</span> Wonyeong Lee · Built with plain HTML &amp; CSS · Hosted on GitHub Pages</p>
-    </footer>
-  </main>
-
-  <script>
-    // Dark-mode toggle
-    var toggle = document.getElementById("theme-toggle");
-    toggle.addEventListener("click", function () {
-      var current = document.documentElement.getAttribute("data-theme");
-      var next = current === "dark" ? "light" : "dark";
-      document.documentElement.setAttribute("data-theme", next);
-      localStorage.setItem("theme", next);
-    });
-
-    // Keep the footer year current automatically
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
-</body>
-</html>
+{% for section in cv.extra_sections %}
+  {% assign title = section.title | default: '' | strip %}{% assign body = section.body | default: '' | strip %}
+  {% if title != '' and body != '' %}
+  <section class="extra-section"><h2>{{ title | escape }}</h2>{{ section.body | markdownify }}</section>
+  {% endif %}
+{% endfor %}

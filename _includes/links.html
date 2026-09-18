@@ -1,0 +1,10 @@
+{%- capture buttons -%}
+  {%- for link in include.links -%}
+    {%- assign label = link.label | default: '' | strip -%}
+    {%- assign url = link.url | default: '' | strip -%}
+    {%- if label != '' and url != '' -%}
+      <a class="cv-button" href="{% include url.html url=url %}">{{ label | escape }}</a>
+    {%- endif -%}
+  {%- endfor -%}
+{%- endcapture -%}
+{%- if buttons != '' -%}<nav class="links publication-links" aria-label="Publication links">{{ buttons }}</nav>{%- endif -%}

@@ -1,0 +1,118 @@
+# 평소 홈페이지 내용은 이 파일에서 수정합니다. PDF는 별도로 교체해야 합니다.
+# 관리 안내: https://wonleeyoung.github.io/manage/
+# 이름·직함·소속·주소·이메일. 사진이 없으면 photo: ""를 유지하세요. 경로는 저장소 루트 기준입니다.
+profile:
+  name: Wonyeong Lee
+  title: Ph.D. Student, Department of Computer Science
+  affiliation: Yonsei University
+  address: 50 Yonsei-ro, Seodaemun-gu, Seoul 03722, Republic of Korea
+  email: wonyeong.lee@yonsei.ac.kr
+  photo: ''
+  cv: /cv.pdf
+  cv_label: Curriculum Vitae (PDF)
+  social_links: []
+  links:
+    - label: Paper Deadlines ⏰
+      url: /deadlines/
+
+# 검색·공유 설명. 일반 텍스트로 입력하세요.
+seo:
+  description: Wonyeong Lee — Ph.D. student at Yonsei University. Research in real-time systems, intermittent computing, and on-device machine learning.
+  social_description: Ph.D. student at Yonsei University — real-time systems, intermittent computing, on-device ML.
+
+# 자기소개는 Markdown입니다. | 아래 각 줄을 두 칸 들여쓰세요.
+about: |
+  I am a Ph.D. student in the Department of Computer Science at Yonsei University, advised by Prof. Jinkyu Lee. My research lies at the intersection of **real-time systems**, **intermittent computing**, and **on-device machine learning** — building systems that deliver timely and accurate inference under tight energy and latency constraints.
+
+# 학력: - date부터 다음 - date 직전까지가 한 항목입니다. 작성한 순서대로 표시합니다.
+education:
+  - date: Mar. 2026 – Present
+    organization: Yonsei University
+    degree: Department of Computer Science
+    note: 'Ph.D. Student · Advisor: Jinkyu Lee'
+    location: Seoul, Korea
+  - date: Aug. 2024 – Feb. 2026
+    organization: Sungkyunkwan University
+    degree: M.S. in Computer Science and Engineering
+    note: 'Thesis: Edge-Server Collaborative Inference System based on Masked Autoencoders · Advisor: Jinkyu Lee'
+    location: Suwon, Korea
+  - date: Aug. 2021 – Aug. 2024
+    organization: Sungkyunkwan University
+    degree: B.S. in Computer Science and Engineering
+    note: ''
+    location: Suwon, Korea
+  - date: Mar. 2018 – Aug. 2024
+    organization: Sungkyunkwan University
+    degree: B.S. in Mechanical Engineering
+    note: ''
+    location: Suwon, Korea
+
+# 연구 관심사: 항목을 추가·삭제하거나 줄의 순서를 바꾸세요.
+interests:
+  - Real-Time Systems
+  - Embedded Systems
+  - Test-Time Adaptation
+  - Intermittent Computing
+  - Mobile Computing
+
+# 논문: - title부터 다음 - title 직전까지가 한 편입니다. 저자 순서를 유지하세요. 예시는 /manage/에 있습니다.
+publications:
+  - title: 'LEAF: Layer-Wise Energy-Adaptive Framework for Multi-DNN Real-Time Intermittent Systems'
+    authors:
+      - Hyunwoo Koo
+      - Wonyeong Lee
+      - Jinkyu Lee
+    venue: The 24th International Conference on Pervasive Computing and Communications (PerCom)
+    details: Pisa, Italy, March 2026
+    links: []
+    image: ''
+  - title: 'CARTEL: Consensus Adapting Real-Time and Efficient Logging'
+    authors:
+      - Seunghoon Lee
+      - Wonyeong Lee
+      - Seungyeon Cho
+      - Seongtae Lee
+      - Jinkyu Lee
+    venue: The 46th IEEE Real-Time Systems Symposium (RTSS)
+    details: pp. 461–473, Boston, MA, USA, December 2025
+    links: []
+    image: ''
+  - title: Masked Autoencoders are Robust Task Offloaders for Timely and Accurate Inference
+    authors:
+      - Wonyeong Lee
+      - Seunghoon Lee
+      - Seungyeon Cho
+      - Hyunwoo Koo
+      - Hoon Sung Chwa
+      - Jinkyu Lee
+    venue: The 38th IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)
+    details: pp. 13835–13842, Hangzhou, China, October 2025
+    links: []
+    image: ''
+
+# 수상·장학금. details의 쉼표 등 구두점도 그대로 표시합니다.
+awards:
+  - title: Graduate Academic Excellence Scholarship
+    details: ', Sungkyunkwan University, Korea'
+    date: Aug. 2024 – Feb. 2026
+  - title: Dean's List Award
+    details: ', Sungkyunkwan University, Korea'
+    date: Dec. 2022
+  - title: National Science and Technology Scholarship
+    details: ', Korean Government (KOSAF), Korea'
+    date: Mar. 2018 – Feb. 2024
+
+# 교육·조교 경력. details의 괄호 등 구두점도 그대로 표시합니다.
+teaching:
+  - title: Technical Writing and Presentation for Software Developers
+    details: (SWE3058), SKKU — Teaching Assistant
+    date: Sep. 2024 – Dec. 2024
+  - title: Seminar in Computer Engineering
+    details: (CSE3036), SKKU — Teaching Assistant
+    date: Mar. 2025 – Jul. 2025
+  - title: Introduction to Data Structures
+    details: (SWE2015), SKKU — Teaching Assistant
+    date: Sep. 2025 – Dec. 2025
+
+# 추가 섹션: title과 body(Markdown). 없으면 []로 두세요.
+extra_sections: []
