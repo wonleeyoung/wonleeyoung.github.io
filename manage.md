@@ -157,6 +157,12 @@ extra_sections:
 - 비어 있는 문자열은 `""`, 비어 있는 목록은 `[]`입니다. 필수 논문 제목·학회명·저자 목록, 프로필 이름은 비우지 마세요.
 - 같은 키를 중복 작성하지 마세요. 아래 검증기가 중복 키와 오타도 찾습니다. 저자·일반 문자열에는 Markdown을 적용하지 않습니다.
 
+## LaTeX / Overleaf로 CV PDF 관리
+
+현재 PDF의 LaTeX 원본은 [저장소의 `latex/` 폴더](https://github.com/wonleeyoung/wonleeyoung.github.io/tree/main/latex)에 보관합니다. Overleaf용 ZIP을 새 프로젝트로 업로드한 뒤 메인 문서는 `main.tex`, 컴파일러는 **XeLaTeX**로 설정합니다. 내용은 `cv-content.tex`, 디자인은 `cv-style.tex`에서 수정합니다. 자세한 설명은 `OVERLEAF-KO.md`에 있습니다.
+
+Overleaf에서 만든 PDF를 내려받아 파일명을 `cv.pdf`로 바꾸고 저장소 루트에 업로드하여 교체합니다. **Overleaf와 홈페이지 YAML, 저장소의 LaTeX 사본은 자동 동기화되지 않습니다.** 홈페이지 본문은 `_data/cv.yml`에서 별도로 수정하고, 최신 Overleaf 소스도 내려받아 보관하세요. GitHub Pages는 LaTeX를 컴파일하지 않습니다.
+
 ## 로컬 검증과 미리보기
 
 Ruby 3.3 계열과 Bundler를 설치한 환경에서 저장소 폴더를 열고 실행합니다. Windows는 RubyInstaller + Devkit 환경을 사용합니다. Ruby/Gem 의존성은 `Gemfile`과 `Gemfile.lock`에 고정하며 임의로 업데이트하지 않습니다.

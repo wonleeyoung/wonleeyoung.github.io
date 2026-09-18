@@ -1,0 +1,35 @@
+% Layout only. Edit cv-content.tex to update the CV's contents.
+\moderncvcolor{black}
+\usepackage[T1]{fontenc}
+\moderncvstyle[nosymbols]{banking}
+\moderncvicons{letters}
+\usepackage[left=19mm,right=19mm,top=18mm,bottom=19mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{texgyrepagella-regular.otf}[
+  BoldFont=texgyrepagella-bold.otf,
+  ItalicFont=texgyrepagella-italic.otf,
+  BoldItalicFont=texgyrepagella-bolditalic.otf]
+\usepackage{needspace}
+\setlength{\parskip}{0pt}
+\setlength{\emergencystretch}{2em}
+\renewcommand*{\sectionfont}{\Large\bfseries\upshape}
+\renewcommand*{\subsectionfont}{\large\bfseries\upshape}
+\AtBeginDocument{\hypersetup{pdftitle={Wonyeong Lee - Curriculum Vitae},pdfauthor={Wonyeong Lee},urlcolor=black}}
+
+% A dated academic entry; whole entries stay on the same page.
+\newcommand{\academicentry}[3]{%
+  \needspace{4\baselineskip}%
+  \noindent\begin{minipage}{\linewidth}%
+  \parbox[t]{\dimexpr\linewidth-44mm\relax}{\textbf{#1}}\hfill\parbox[t]{42mm}{\raggedleft\small #2}\par
+  #3\par
+  \end{minipage}\par\vspace{0.65em}}
+
+% Publication: label, title, authors, venue/details, optional linked source.
+\newcommand{\publication}[5]{%
+  \needspace{6\baselineskip}%
+  \noindent\begin{minipage}{\linewidth}%
+  \hangindent=2em\hangafter=0\makebox[0pt][r]{[#1]\hspace{0.6em}}%
+  \textbf{#2}\par
+  \hangindent=2em\hangafter=0 #3.\par
+  \hangindent=2em\hangafter=0 \textit{#4}. #5\par
+  \end{minipage}\par\vspace{0.8em}}

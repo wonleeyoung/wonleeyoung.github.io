@@ -129,6 +129,12 @@ teaching:
   - title: Introduction to Data Structures
     details: (SWE2015), SKKU — Teaching Assistant
     date: Sep. 2025 – Dec. 2025
+  - title: DISCRETE MATHEMATICS
+    details: (CAS2101.01-00), Yonsei University — Teaching Assistant
+    date: Mar. 2026 – Jun. 2026
+  - title: REAL-TIME SYSTEMS
+    details: (CAS4155.01-00), Yonsei University — Teaching Assistant
+    date: Sep. 2026 – Dec. 2026
 
 # 추가 섹션: title과 body(Markdown). 없으면 []로 두세요.
 extra_sections: []
