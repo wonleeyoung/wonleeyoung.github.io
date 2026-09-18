@@ -57,6 +57,19 @@ interests:
 
 # 논문: - title부터 다음 - title 직전까지가 한 편입니다. 저자 순서를 유지하세요. 예시는 /manage/에 있습니다.
 publications:
+  - title: Orchestrating Test-Time Adaptation for Timely and Accurate DNN Inference
+    authors:
+      - Wonyeong Lee
+      - Seongtae Lee
+      - Seunghoon Lee
+      - Jinsoo Park
+      - Jinkyu Lee
+    venue: The 47th IEEE Real-Time Systems Symposium (RTSS)
+    details: Yokohama, Japan, December 2026 (to appear)
+    links:
+      - label: Program
+        url: https://2026.rtss.org/program/program/
+    image: ''
   - title: 'LEAF: Layer-Wise Energy-Adaptive Framework for Multi-DNN Real-Time Intermittent Systems'
     authors:
       - Hyunwoo Koo
@@ -92,6 +105,9 @@ publications:
 
 # 수상·장학금. details의 쉼표 등 구두점도 그대로 표시합니다.
 awards:
+  - title: Doctoral Excellence Scholarship (Science & Engineering)
+    details: ', Korean Government (KOSAF), Korea'
+    date: Jul. 2026 ~ Present
   - title: Graduate Academic Excellence Scholarship
     details: ', Sungkyunkwan University, Korea'
     date: Aug. 2024 – Feb. 2026
