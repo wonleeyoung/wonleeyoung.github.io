@@ -22,7 +22,7 @@ seo:
 
 # 자기소개는 Markdown입니다. | 아래 각 줄을 두 칸 들여쓰세요.
 about: |
-  I am a Ph.D. student in the Department of Computer Science at Yonsei University, advised by Prof. Jinkyu Lee. My research interests include **real-time systems, on-device machine learning, and physical AI**. I am open to research collaborations and would be happy to connect with researchers who share these interests. If you are interested in working together, please feel free to contact me at [wonyeong.lee@yonsei.ac.kr](mailto:wonyeong.lee@yonsei.ac.kr).
+  I am a Ph.D. student in the Department of Computer Science at Yonsei University, advised by [Prof. Jinkyu Lee](https://rtcl-yonsei.github.io/website/). My research interests include **real-time systems, on-device machine learning, and physical AI**. I am open to research collaborations and would be happy to connect with researchers who share these interests. If you are interested in working together, please feel free to contact me at [wonyeong.lee@yonsei.ac.kr](mailto:wonyeong.lee@yonsei.ac.kr).
 
 # 학력: - date부터 다음 - date 직전까지가 한 항목입니다. 작성한 순서대로 표시합니다.
 education:
