@@ -17,12 +17,12 @@ profile:
 
 # 검색·공유 설명. 일반 텍스트로 입력하세요.
 seo:
-  description: Wonyeong Lee — Ph.D. student at Yonsei University. Research in real-time systems, intermittent computing, and on-device machine learning.
-  social_description: Ph.D. student at Yonsei University — real-time systems, intermittent computing, on-device ML.
+  description: Wonyeong Lee — Ph.D. student at Yonsei University. Research interests in real-time systems, on-device machine learning, and physical AI. Open to research collaborations.
+  social_description: Ph.D. student at Yonsei University — real-time systems, on-device machine learning, and physical AI. Open to research collaborations.
 
 # 자기소개는 Markdown입니다. | 아래 각 줄을 두 칸 들여쓰세요.
 about: |
-  I am a Ph.D. student in the Department of Computer Science at Yonsei University, advised by Prof. Jinkyu Lee. My research lies at the intersection of **real-time systems**, **intermittent computing**, and **on-device machine learning** — building systems that deliver timely and accurate inference under tight energy and latency constraints.
+  I am a Ph.D. student in the Department of Computer Science at Yonsei University, advised by Prof. Jinkyu Lee. My research interests include **real-time systems, on-device machine learning, and physical AI**. I am open to research collaborations and would be happy to connect with researchers who share these interests. If you are interested in working together, please feel free to contact me at [wonyeong.lee@yonsei.ac.kr](mailto:wonyeong.lee@yonsei.ac.kr).
 
 # 학력: - date부터 다음 - date 직전까지가 한 항목입니다. 작성한 순서대로 표시합니다.
 education:
@@ -50,10 +50,8 @@ education:
 # 연구 관심사: 항목을 추가·삭제하거나 줄의 순서를 바꾸세요.
 interests:
   - Real-Time Systems
-  - Embedded Systems
-  - Test-Time Adaptation
-  - Intermittent Computing
-  - Mobile Computing
+  - On-Device Machine Learning
+  - Physical AI
 
 # 논문: - title부터 다음 - title 직전까지가 한 편입니다. 저자 순서를 유지하세요. 예시는 /manage/에 있습니다.
 publications:
