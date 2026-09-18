@@ -89,7 +89,7 @@ interests:
 
 아래는 **관리 안내용 예시이며 실제 이력이 아닙니다.** 실제 정보와 업로드한 파일 경로로 바꿔서 사용하세요.
 
-`publications` 아래 기존 논문의 **`  - title:`부터 다음 `  - title:` 직전까지**를 복사합니다. 마지막 논문은 `image:`까지입니다. `authors`, `venue`, `details`, `links`, `image`를 빠뜨리지 않도록 블록 전체를 복사하세요.
+`publications` 아래 기존 논문의 **`- title:`부터 다음 `- title:` 직전까지**를 복사합니다. 이 줄 앞의 공백 두 칸도 유지하세요. 마지막 논문은 `image:`까지입니다. `authors`, `venue`, `details`, `links`, `image`를 빠뜨리지 않도록 블록 전체를 복사하세요.
 
 ```yaml
 publications:
@@ -145,7 +145,7 @@ extra_sections:
       - [프로젝트 링크](https://example.org)
 ```
 
-섹션을 더 추가하려면 `  - title:` 블록 전체를 복사합니다. 사용하지 않으면 `extra_sections: []`로 되돌립니다.
+섹션을 더 추가하려면 `- title:` 블록 전체를 앞의 공백 두 칸과 함께 복사합니다. 사용하지 않으면 `extra_sections: []`로 되돌립니다.
 
 ## YAML 입력 주의사항
 
