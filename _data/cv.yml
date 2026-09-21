@@ -7,7 +7,7 @@ profile:
   affiliation: Yonsei University
   address: 50 Yonsei-ro, Seodaemun-gu, Seoul 03722, Republic of Korea
   email: wonyeong.lee@yonsei.ac.kr
-  photo: ''
+  photo: /profile.png
   cv: /cv.pdf
   cv_label: Curriculum Vitae (PDF)
   social_links: []
