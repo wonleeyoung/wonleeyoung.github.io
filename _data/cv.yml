@@ -64,9 +64,7 @@ publications:
       - Jinkyu Lee
     venue: The 47th IEEE Real-Time Systems Symposium (RTSS)
     details: Yokohama, Japan, December 2026 (to appear)
-    links:
-      - label: Program
-        url: https://2026.rtss.org/program/program/
+    links: []
     image: ''
   - title: 'LEAF: Layer-Wise Energy-Adaptive Framework for Multi-DNN Real-Time Intermittent Systems'
     authors:
@@ -127,10 +125,10 @@ teaching:
   - title: Introduction to Data Structures
     details: (SWE2015), SKKU — Teaching Assistant
     date: Sep. 2025 – Dec. 2025
-  - title: DISCRETE MATHEMATICS
+  - title: Discrete Mathematics
     details: (CAS2101.01-00), Yonsei University — Teaching Assistant
     date: Mar. 2026 – Jun. 2026
-  - title: REAL-TIME SYSTEMS
+  - title: Real-Time Systems
     details: (CAS4155.01-00), Yonsei University — Teaching Assistant
     date: Sep. 2026 – Dec. 2026
 
