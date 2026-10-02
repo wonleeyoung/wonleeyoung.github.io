@@ -65,7 +65,7 @@ layout: default
   <ol class="pub-list">
     {% for paper in cv.publications %}
     <li>
-      <span class="pub-title">{{ paper.title | escape }}</span>.
+      <span class="pub-title">{{ paper.title | escape }}</span>.<br>
       {% for author in paper.authors -%}
         {%- unless forloop.first -%}{%- if forloop.last -%}{%- if forloop.length > 2 -%}, and {% else %} and {% endif %}{%- else -%}, {% endif %}{%- endunless -%}
         {%- if author == cv.profile.name -%}<span class="me">{{ author | escape }}</span>{%- else -%}{{ author | escape }}{%- endif -%}
